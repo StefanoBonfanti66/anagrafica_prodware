@@ -61,18 +61,49 @@ if gemini_api_key:
 
         st.success("Gemini API configurata con successo!")
 
-        user_question = st.text_area("Fai la tua domanda sui clienti:", key="user_question_input")
+        # --- Filtering UI for Gemini Context ---
+        st.subheader("Filtra i dati per la query Gemini")
+        
+        # General search input
+        search_query = st.text_input("Cerca per Codice o Ragione Sociale (opzionale):", key="search_query_input")
+
+        # Nazione filter
+        unique_nazioni = ['Tutte'] + sorted(df_anagrafica['Nazione'].dropna().unique().tolist())
+        selected_nazione = st.selectbox("Filtra per Nazione:", unique_nazioni, key="nazione_filter_select")
+
+        # Condizione filter
+        unique_condizioni = ['Tutte'] + sorted(df_anagrafica['Condizione'].dropna().unique().tolist())
+        selected_condizione = st.selectbox("Filtra per Condizione:", unique_condizioni, key="condizione_filter_select")
+
+        df_filtered = df_anagrafica.copy()
+
+        # Apply filters
+        if search_query:
+            df_filtered = df_filtered[
+                df_filtered['Codice'].astype(str).str.contains(search_query, case=False, na=False) |
+                df_filtered['Ragione Sociale'].astype(str).str.contains(search_query, case=False, na=False)
+            ]
+        if selected_nazione != 'Tutte':
+            df_filtered = df_filtered[df_filtered['Nazione'] == selected_nazione]
+        if selected_condizione != 'Tutte':
+            df_filtered = df_filtered[df_filtered['Condizione'] == selected_condizione]
+
+        st.write(f"Dati filtrati per Gemini: {len(df_filtered)} clienti.")
+        st.dataframe(df_filtered) # Display filtered data for user to see what's being sent
+
+        # --- End Filtering UI ---
+
+        user_question = st.text_area("Fai la tua domanda sui clienti filtrati:", key="user_question_input")
 
         if st.button("Chiedi a Gemini", key="ask_gemini_button"):
             if not user_question:
                 st.warning("Per favore, inserisci una domanda.")
-            elif df_anagrafica.empty:
-                st.warning("Non ci sono dati clienti da interrogare. Elabora prima l'anagrafica.")
+            elif df_filtered.empty:
+                st.warning("Non ci sono dati clienti filtrati da interrogare. Applica i filtri o elabora l'anagrafica.")
             else:
                 with st.spinner("Gemini sta elaborando la tua richiesta..."):
-                    # TEMPORARY FIX: Send only the first 100 rows to avoid quota limits
-                    # This will limit Gemini's knowledge to only these rows.
-                    data_context = df_anagrafica.head(100).to_csv(index=False)
+                    # Pass the filtered DataFrame as context
+                    data_context = df_filtered.to_csv(index=False)
 
                     prompt = f"""
                     Sei un assistente che risponde a domande sui dati dei clienti.
@@ -80,7 +111,7 @@ if gemini_api_key:
                     Rispondi alla domanda dell'utente basandoti ESCLUSIVAMENTE sui dati forniti.
                     Se la risposta non può essere trovata nei dati, indica che non hai informazioni.
 
-                    Dati dei clienti (CSV - solo le prime 100 righe per evitare limiti di quota):
+                    Dati dei clienti (CSV filtrati):
                     ```csv
                     {data_context}
                     ```
