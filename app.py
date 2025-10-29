@@ -51,26 +51,32 @@ st.header("Interrogazione con AI (Gemini)")
 st.write("Fai domande sui dati dei clienti utilizzando l'intelligenza artificiale di Gemini.")
 
 # API Key Input
-gemini_api_key = st.text_input("Inserisci la tua Gemini API Key", type="password")
+gemini_api_key = st.text_input("Inserisci la tua Gemini API Key", type="password", key="gemini_api_key_input")
 
 if gemini_api_key:
     try:
         genai.configure(api_key=gemini_api_key)
-        model = genai.GenerativeModel('gemini-pro')
+
+        # --- Temporary Model Listing for Debugging ---
+        if st.button("Lista Modelli Disponibili", key="list_models_button"):
+            st.write("Modelli disponibili:")
+            for m in genai.list_models():
+                st.write(f"- {m.name} (supported_generation_methods: {m.supported_generation_methods})")
+        # --- End Temporary Model Listing ---
+
+        model = genai.GenerativeModel('gemini-pro') # This line is causing the error
 
         st.success("Gemini API configurata con successo!")
 
-        user_question = st.text_area("Fai la tua domanda sui clienti:")
+        user_question = st.text_area("Fai la tua domanda sui clienti:", key="user_question_input")
 
-        if st.button("Chiedi a Gemini"):
+        if st.button("Chiedi a Gemini", key="ask_gemini_button"):
             if not user_question:
                 st.warning("Per favore, inserisci una domanda.")
             elif df_anagrafica.empty:
                 st.warning("Non ci sono dati clienti da interrogare. Elabora prima l'anagrafica.")
             else:
                 with st.spinner("Gemini sta elaborando la tua richiesta..."):
-                    # Prepare data as context for Gemini
-                    # Using to_csv for a compact representation, can be optimized for very large datasets
                     data_context = df_anagrafica.to_csv(index=False)
 
                     prompt = f"""
