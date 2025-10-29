@@ -57,14 +57,8 @@ if gemini_api_key:
     try:
         genai.configure(api_key=gemini_api_key)
 
-        # --- Temporary Model Listing for Debugging ---
-        if st.button("Lista Modelli Disponibili", key="list_models_button"):
-            st.write("Modelli disponibili:")
-            for m in genai.list_models():
-                st.write(f"- {m.name} (supported_generation_methods: {m.supported_generation_methods})")
-        # --- End Temporary Model Listing ---
-
-        model = genai.GenerativeModel('gemini-pro') # This line is causing the error
+        # Changed model name from 'gemini-pro' to 'gemini-pro-latest'
+        model = genai.GenerativeModel('gemini-pro-latest')
 
         st.success("Gemini API configurata con successo!")
 
