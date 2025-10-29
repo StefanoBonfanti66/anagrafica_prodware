@@ -57,7 +57,6 @@ if gemini_api_key:
     try:
         genai.configure(api_key=gemini_api_key)
 
-        # Changed model name from 'gemini-pro' to 'gemini-pro-latest'
         model = genai.GenerativeModel('gemini-pro-latest')
 
         st.success("Gemini API configurata con successo!")
@@ -71,7 +70,9 @@ if gemini_api_key:
                 st.warning("Non ci sono dati clienti da interrogare. Elabora prima l'anagrafica.")
             else:
                 with st.spinner("Gemini sta elaborando la tua richiesta..."):
-                    data_context = df_anagrafica.to_csv(index=False)
+                    # TEMPORARY FIX: Send only the first 100 rows to avoid quota limits
+                    # This will limit Gemini's knowledge to only these rows.
+                    data_context = df_anagrafica.head(100).to_csv(index=False)
 
                     prompt = f"""
                     Sei un assistente che risponde a domande sui dati dei clienti.
@@ -79,7 +80,7 @@ if gemini_api_key:
                     Rispondi alla domanda dell'utente basandoti ESCLUSIVAMENTE sui dati forniti.
                     Se la risposta non può essere trovata nei dati, indica che non hai informazioni.
 
-                    Dati dei clienti (CSV):
+                    Dati dei clienti (CSV - solo le prime 100 righe per evitare limiti di quota):
                     ```csv
                     {data_context}
                     ```
