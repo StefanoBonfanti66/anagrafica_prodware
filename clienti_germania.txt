@@ -1,0 +1,63 @@
+Elenco dei clienti in Germania:
+
+  Codice                                   Ragione Sociale
+F0002075                     AC-CONCEPT-SHOP GMBH & CO. KG
+F0002208                 ACE HANDELS- UND ENTWLCKLUNG GMBH
+F0003012                               APTAR DORTMUND GMBH
+F0001828                                           AW GMBH
+00015323                AlmaWin Reinigungskonzentrate GmbH
+F0002755                            BIONATIC GMBH & CO. KG
+00015321                             Babiel Cosmetics GmbH
+00015353                                     Beiersdorf AG
+00015324                             Birkenbach-Gesundheit
+F0002578  CD COSMETIC DISTRIBUTION UG (HAFTUNGSBESCHRANKT)
+F0003077                                   CELLEPHONE E.K.
+F0002073                                    CLEVEBRIDGE AG
+F0010252                              COLOR PLASTIC CHEMIE
+F0002256              CSH COMPUTER+WERBUNG HIRTREITER E.K.
+00015322                     DALTON COSMETICS GERMANY GmbH
+F0002718               DELIGHT DISPLAYS - MATTHIAS SPIELER
+F0002727                           DEYNIQUE COSMETICS GMBH
+F0002209                              DK-ARBEITSSCHUTZ GBR
+F0003408                    DKV EURO SERVICE GMBH + CO.KG.
+F0002268                                     DORIGINAL LTD
+ 0009064                             DR. BIECHELE KOSMETIK
+00015320                 Dr. Armah-Biomedica GmbH & Co. KG
+F0003017                   ELFA ELEKTROFACHGROBHANDEL GMBH
+F0001359                                 ERNST ROESER GMBH
+F0001434                   ERNST ROESER GMBH SIEBDRUCKEREI
+F0003082                                    EUROHARRY GMBH
+F0002020                                           FAIRNET
+F0003177                                  FIRMA ALTINDAL *
+  008792                                   FIRSTDESIGN.COM
+F0001927                                    FIRSTPACK GMBH
+F0010256                              FKUR KUNSTSTOFF GMBH
+F0002320                FUNTASTEC.DE - SCHEWE & BREUER GBR
+F0002734                                 GANZ EINFACH GMBH
+F0002101                        GERRESHEIMER MOMIGNIES SA.
+F0002754                              GOODS & GADGETS GMBH
+F0002207                                   GREEN2PRINT UG.
+F0002936                                 HARDWARESTORE2000
+F0003307                        HEINZ GLAS GMBH & CO. KGAA
+F0002100 HERRMANN & SCHMIDT DIENSTLEISTUNGEN GMBH & CO. KG
+F0002102                                           HEUSSEN
+F0002956                                       ID COMPUTER
+F0002586                                    JUVENILIS GMBH
+F0001926                              LEIPZIGER MESSE GMBH
+F0003183                                      MARANOS GMBH
+F0003217                                     MODEHERZ GMBH
+F0003016                           MUSIKHAUS KIRSTEIN GMBH
+F0002201                          NET-XPRESS GMBH & CO. KG
+F0003180                              NEUMANN BILD+WERBUNG
+  009229                                       OMWEIHRAUCH
+F0002529                             OS TRADING COMPANY UG
+F0003397                                      PANTONE LLC.
+F0002782           SCHRAMM ONLINEHANDEL ROCCO SCHRAMM E.K.
+F0002689                                      SIXBROS GMBH
+F0003410                                       SUBTEL GMBH
+F0002283                                           TOPFANN
+F0001960                              VETRONAVIGLIO S.R.L.
+ F01960B              VETRONAVIGLIO S.R.L. CRISTINA PALARA
+F0001379                                    W. MULLER GMBH
+F0002229                      WIRTSCHAFTSFORUM VERLAG GMBH
+  009228                           WTZ WUNDTHERAPIEZENTRUM
