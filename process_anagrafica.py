@@ -95,7 +95,7 @@ def main():
     #     print(df_esempio.to_string())
 
     # 2. Esecuzione sui file completi
-    file_pattern_completo = 'anagrafica_*.csv'
+    file_pattern_completo = 'anagrafica_prodware/anagrafica_*.csv'
     print(f"\n--- Elaborazione dei file completi '{file_pattern_completo}' ---")
     df_completo = process_customer_files(file_pattern_completo)
     

@@ -10,7 +10,7 @@ L'obiettivo principale è trasformare i dati grezzi, esportati in 8 file CSV con
 
 ### `process_anagrafica.py`
 
-Questo è lo script principale del progetto. Legge tutti i file `anagrafica_*.csv` presenti nella directory, elabora i dati per estrarre le informazioni di ogni cliente e li consolida in un unico file CSV. **Lo script è stato corretto e ora funziona come previsto, generando `anagrafica_pulita.csv` con i dati estratti.**
+Questo è lo script principale del progetto. Legge tutti i file `anagrafica_*.csv` presenti nella sottodirectory `anagrafica_prodware`, elabora i dati per estrarre le informazioni di ogni cliente e li consolida in un unico file CSV. **Lo script è stato corretto per risolvere il problema di identificazione dei record cliente (la condizione `row[0] == 'Codice'`) e il percorso dei file, e ora funziona come previsto, generando `anagrafica_pulita.csv` con i dati estratti.**
 
 **Utilizzo:**
 ```bash
@@ -64,4 +64,4 @@ streamlit run app.py
 L'applicazione si aprirà automaticamente nel tuo browser web.
 
 ---
-*Ultimo aggiornamento: mercoledì 29 ottobre 2025*
+*Ultimo aggiornamento: lunedì 10 novembre 2025*
