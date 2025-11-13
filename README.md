@@ -2,20 +2,6 @@
 
 Questo progetto contiene una serie di script per elaborare e interrogare i dati dell'anagrafica clienti esportati dal gestionale Prodware.
 
-## Esportazione Anagrafica da Prodware (Registrazione Azioni Utente)
-
-Per garantire la riproducibilità e facilitare l'aggiornamento dell'anagrafica, è fondamentale documentare i passaggi esatti per esportare il file `sanagr01.xlsx` (o `sanagr01.xls`) dal gestionale Prodware. Si consiglia di utilizzare lo strumento "Registrazione azioni utente" (Steps Recorder su Windows) per catturare questi passaggi.
-
-**Come registrare i passaggi:**
-
-1.  **Avvia "Registrazione azioni utente"**: Cerca "Registrazione azioni utente" (o "Steps Recorder") nel menu Start di Windows e aprilo.
-2.  **Avvia la registrazione**: Clicca su "Avvia registrazione".
-3.  **Esegui l'esportazione da Prodware**: Procedi con l'esportazione del file dell'anagrafica clienti da Prodware, assicurandoti di catturare tutti i clic e le finestre di dialogo rilevanti.
-4.  **Interrompi la registrazione**: Una volta completata l'esportazione, clicca su "Interrompi registrazione".
-5.  **Salva la registrazione**: Salva il file risultante (solitamente un file `.zip` contenente un report HTML) in una posizione accessibile.
-
-**Dopo aver generato il report, si prega di aggiornare questa sezione del README con un link al report o incorporando direttamente i passaggi chiave qui.**
-
 ## Scopo
 
 L'obiettivo principale è trasformare i dati grezzi, esportati in 8 file CSV con un formato complesso, in un unico file CSV pulito e strutturato (`anagrafica_pulita.csv`). Vengono forniti anche script per interrogare i dati puliti.
