@@ -8,13 +8,14 @@ L'obiettivo principale è trasformare i dati grezzi, esportati in 8 file CSV con
 
 ## Scripts
 
-### `process_anagrafica.py`
+### `process_excel_anagrafica.py`
 
-Questo è lo script principale del progetto. Legge tutti i file `anagrafica_*.csv` presenti nella sottodirectory `anagrafica_prodware`, elabora i dati per estrarre le informazioni di ogni cliente e li consolida in un unico file CSV. **Lo script è stato corretto per risolvere il problema di identificazione dei record cliente (la condizione `row[0] == 'Codice'`) e il percorso dei file, e ora funziona come previsto, generando `anagrafica_pulita.csv` con i dati estratti.**
+Questo script è il nuovo strumento principale per l'elaborazione dei dati dell'anagrafica clienti. Legge direttamente il file Excel `sanagr01.xlsx` (o `sanagr01.xls` se il primo non è presente), analizza i dati da ogni foglio per estrarre le informazioni di ogni cliente e li consolida in un unico file CSV pulito e strutturato (`anagrafica_pulita.csv`). Questo script sostituisce il precedente `process_anagrafica.py` che elaborava i file CSV.
 
 **Utilizzo:**
+Per aggiornare l'anagrafica, è sufficiente sostituire il file `sanagr01.xlsx` (o `sanagr01.xls`) con la nuova estrazione da Prodware ed eseguire lo script:
 ```bash
-python process_anagrafica.py
+python process_excel_anagrafica.py
 ```
 Lo script genererà (o sovrascriverà) il file `anagrafica_pulita.csv`.
 
@@ -51,9 +52,9 @@ Per rendere l'interazione con i dati più user-friendly, è stata creata un'appl
 Questo script avvia l'applicazione Streamlit che permette di elaborare i dati, visualizzare l'anagrafica e in futuro implementare funzionalità di ricerca e filtro tramite un'interfaccia grafica.
 
 **Prerequisiti:**
-Assicurati di avere Streamlit installato:
+Assicurati di avere Streamlit, xlrd e openpyxl installati:
 ```bash
-pip install streamlit pandas
+pip install streamlit pandas xlrd openpyxl
 ```
 
 **Utilizzo:**
@@ -64,4 +65,4 @@ streamlit run app.py
 L'applicazione si aprirà automaticamente nel tuo browser web.
 
 ---
-*Ultimo aggiornamento: lunedì 10 novembre 2025*
+*Ultimo aggiornamento: giovedì 13 novembre 2025*
